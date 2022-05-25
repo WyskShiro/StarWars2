@@ -2,8 +2,10 @@ package will.shiro.starwars2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import will.shiro.starwars2.ui.main.MainFragment
+import dagger.hilt.android.AndroidEntryPoint
+import will.shiro.starwars2.character.presentation.CharactersFragment
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -11,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
+                .replace(R.id.container, CharactersFragment.newInstance())
                 .commitNow()
         }
     }
